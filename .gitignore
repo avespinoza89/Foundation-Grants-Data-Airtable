@@ -1,0 +1,201 @@
+# ============================================================================
+# GITIGNORE FOR R PROJECT - AIRTABLE NORMALIZATION
+# ============================================================================
+
+# ============================================================================
+# CREDENTIALS AND SECRETS
+# ============================================================================
+.env
+.Renviron
+*.key
+*.secret
+credentials.json
+
+# ============================================================================
+# R SPECIFIC
+# ============================================================================
+
+# History files
+.Rhistory
+.Rapp.history
+
+# Session Data files
+.RData
+.RDataTmp
+
+# User-specific files
+.Ruserdata
+
+# Example code in package build process
+*-Ex.R
+
+# Output files from R CMD build
+/*.tar.gz
+
+# Output files from R CMD check
+/*.Rcheck/
+
+# RStudio files
+.Rproj.user/
+*.Rproj
+
+# produced vignettes
+vignettes/*.html
+vignettes/*.pdf
+
+# OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
+.httr-oauth
+
+# knitr and R markdown default cache directories
+*_cache/
+/cache/
+
+# Temporary files created by R markdown
+*.utf8.md
+*.knit.md
+
+# R Environment Variables
+.Renviron
+
+# pkgdown site (auto-generated documentation)
+# Note: Our manual docs/ directory is tracked
+# docs/
+
+# translation temp files
+po/*~
+
+# RStudio Connect folder
+rsconnect/
+
+# ============================================================================
+# DATA FILES
+# ============================================================================
+
+# Ignore all data files by default
+data/input/*.xlsx
+data/input/*.csv
+data/input/*.xls
+data/output/*.xlsx
+data/output/*.csv
+data/output/*.xls
+
+# But keep the directories and .gitkeep files
+!data/input/.gitkeep
+!data/output/.gitkeep
+
+# Keep example/sample data if specifically named
+!data/input/*EXAMPLE*.xlsx
+!data/input/*SAMPLE*.xlsx
+
+# ============================================================================
+# LOGS AND TEMPORARY FILES
+# ============================================================================
+
+# Log files
+*.log
+logs/
+*.out
+
+# Temporary files
+*.tmp
+*.temp
+~$*.xlsx
+~$*.xls
+.~*.xlsx
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# ============================================================================
+# OPERATING SYSTEM
+# ============================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ============================================================================
+# IDE AND EDITOR FILES
+# ============================================================================
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+Session.vim
+Sessionx.vim
+.netrwhist
+tags
+[._]*.un~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ============================================================================
+# PROJECT SPECIFIC
+# ============================================================================
+
+# Airtable export files (may contain sensitive data)
+*_airtable_export_*
+
+# Backup files with timestamps
+*_backup_*
+
+# Test output
+test_output/
+test_results/
+
+# Documentation build
+_site/
+_book/
