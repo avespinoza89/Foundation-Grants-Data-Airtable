@@ -219,7 +219,7 @@ AIRTABLE_API_KEY=your_api_key_here
 AIRTABLE_BASE_ID=your_base_id_here
 
 # Table names (customize as needed)
-SOURCE_TABLE_NAME=Foundation Grants Data
+SOURCE_TABLE_NAME=raw-grants-data
 TARGET_GRANTS_TABLE=Grants
 TARGET_REPORTS_TABLE=Progress_Reports
 TARGET_VISITS_TABLE=Site_Visits
@@ -275,7 +275,7 @@ The normalization script includes comprehensive validation:
 
 ```r
 # Extract from Airtable
-data <- extract_from_airtable("Foundation Grants Data")
+data <- extract_from_airtable("raw-grants-data")
 
 # Write to Airtable
 write_to_airtable(grants_df, "Grants")
@@ -302,6 +302,10 @@ delete_all_records("Old_Table")
 4. **Rate limit errors** - Too many API requests
    - Script includes rate limiting (0.21s between requests)
    - Wait a few minutes and retry
+   
+5. **Unknown field name** - Variable name (e.g. column name or field name) not found in new table
+  - New table being created may include the variable in R but may be missing in Airtable
+  - Refer to Airtable table, manage fields, and manually create missing field
 
 ### Getting Help
 
@@ -349,7 +353,7 @@ Performance depends on:
 
 ## Contributing
 
-This project was created for Civil Justice, Inc. as part of an RFP response demonstrating database normalization expertise.
+This project was created for a philanthropic foundation as part of an effort to streamline their data management and strategic grantmaking process. The data found in this repository has been deidentified and all organizational and individual names are fictitious to ensure confidentiality. The repository was duplicated for an RFP response demonstrating database normalization expertise.
 
 ## License
 
@@ -358,7 +362,7 @@ This project was created for Civil Justice, Inc. as part of an RFP response demo
 ## Contact
 
 For questions or support:
-- **Author**: Civil Justice Data Team
+- **Author**: Plot + Learn
 - **Date**: November 2025
 - **Purpose**: Database Normalization Demonstration
 

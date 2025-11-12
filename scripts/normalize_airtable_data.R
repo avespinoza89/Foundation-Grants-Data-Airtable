@@ -63,7 +63,7 @@ AIRTABLE_API_KEY <- Sys.getenv("AIRTABLE_API_KEY", unset = "")
 AIRTABLE_BASE_ID <- Sys.getenv("AIRTABLE_BASE_ID", unset = "")
 
 # Table names in Airtable
-SOURCE_TABLE_NAME <- Sys.getenv("SOURCE_TABLE_NAME", unset = "Foundation Grants Data")
+SOURCE_TABLE_NAME <- Sys.getenv("SOURCE_TABLE_NAME", unset = "raw-grants-data")
 TARGET_GRANTS_TABLE <- Sys.getenv("TARGET_GRANTS_TABLE", unset = "Grants")
 TARGET_REPORTS_TABLE <- Sys.getenv("TARGET_REPORTS_TABLE", unset = "Progress_Reports")
 TARGET_VISITS_TABLE <- Sys.getenv("TARGET_VISITS_TABLE", unset = "Site_Visits")
@@ -357,6 +357,7 @@ progress_reports <- messy_data %>%
   select(Grant_ID, Report_Date, Reporting_Period, Report_Type,
          Clients_Served, Activities_Description, Challenges_Faced,
          Budget_Status) %>%
+  distinct() %>%
   mutate(
     Report_ID = sprintf("RPT-%s-%04d",
                         substr(Grant_ID, 4, 15),
@@ -381,6 +382,7 @@ site_visits <- messy_data %>%
   filter(!is.na(Site_Visit_Date) & Site_Visit_Date != "") %>%
   select(Grant_ID, Site_Visit_Date, Visit_Type, Visitor_Name,
          Visit_Purpose, Observations, Follow_Up_Required, Follow_Up_Notes) %>%
+  distinct() %>%
   mutate(
     Visit_ID = sprintf("VST-%s-%04d",
                        substr(Grant_ID, 4, 15),
