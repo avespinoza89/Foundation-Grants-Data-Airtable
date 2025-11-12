@@ -357,6 +357,7 @@ progress_reports <- messy_data %>%
   select(Grant_ID, Report_Date, Reporting_Period, Report_Type,
          Clients_Served, Activities_Description, Challenges_Faced,
          Budget_Status) %>%
+  distinct() %>%  # Remove duplicate reports
   mutate(
     Report_ID = sprintf("RPT-%s-%04d",
                         substr(Grant_ID, 4, 15),
@@ -381,6 +382,7 @@ site_visits <- messy_data %>%
   filter(!is.na(Site_Visit_Date) & Site_Visit_Date != "") %>%
   select(Grant_ID, Site_Visit_Date, Visit_Type, Visitor_Name,
          Visit_Purpose, Observations, Follow_Up_Required, Follow_Up_Notes) %>%
+  distinct() %>%  # Remove duplicate visits
   mutate(
     Visit_ID = sprintf("VST-%s-%04d",
                        substr(Grant_ID, 4, 15),
